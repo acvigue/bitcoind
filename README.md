@@ -8,7 +8,7 @@ A minimal, secure Docker image for running Bitcoin Core on Alpine Linux.
 - **Security-focused**:
   - GPG signature verification using official Bitcoin Core builder keys
   - SHA256 checksum verification
-  - Non-root user (UID/GID 523)
+  - Non-root user (UID & GID 523)
   - Principle of least privilege
 - **Multi-architecture support**: amd64, arm64, arm/v7
 - **Health checks**: Monitors blockchain sync and network connectivity
