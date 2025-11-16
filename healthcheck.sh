@@ -2,7 +2,7 @@
 set -e
 
 # Use bitcoin-cli to check blockchain info
-BLOCKCHAIN_INFO=$(bitcoin-cli -datadir="${BITCOIN_DATA}" getblockchaininfo 2>/dev/null)
+BLOCKCHAIN_INFO=$(/usr/local/bin/bitcoin-cli -datadir="${BITCOIN_DATA}" getblockchaininfo 2>/dev/null)
 
 if [ $? -ne 0 ]; then
     echo "Failed to connect to bitcoind"
@@ -29,7 +29,7 @@ if [ "$BLOCKS" -lt "$HEADERS" ]; then
 fi
 
 # Once synced, check connection count
-CONNECTION_COUNT=$(bitcoin-cli -datadir="${BITCOIN_DATA}" getconnectioncount 2>/dev/null)
+CONNECTION_COUNT=$(/usr/local/bin/bitcoin-cli -datadir="${BITCOIN_DATA}" getconnectioncount 2>/dev/null)
 
 if [ $? -ne 0 ]; then
     echo "Failed to get connection count"
