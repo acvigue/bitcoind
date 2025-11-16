@@ -45,11 +45,10 @@ RUN tar xzf bitcoin-${BITCOIN_VERSION}.tar.gz && \
         -DBUILD_GUI=OFF \
         -DWITH_ZMQ=ON \
         -DENABLE_WALLET=ON && \
-    cmake --build build -j$(nproc) --target bitcoind bitcoin-cli bitcoin-wallet && \
+    cmake --build build -j$(nproc) --target bitcoind bitcoin-cli && \
     DESTDIR=/bitcoin-install cmake --install build --component bitcoind && \
     DESTDIR=/bitcoin-install cmake --install build --component bitcoin-cli && \
-    DESTDIR=/bitcoin-install cmake --install build --component bitcoin-wallet && \
-    strip /bitcoin-install/usr/bin/bitcoind /bitcoin-install/usr/bin/bitcoin-cli /bitcoin-install/usr/bin/bitcoin-wallet
+    strip /bitcoin-install/usr/bin/bitcoind /bitcoin-install/usr/bin/bitcoin-cli
 
 # Runtime stage
 FROM alpine:latest

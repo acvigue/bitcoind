@@ -33,8 +33,7 @@ walletdir=${WALLETDIR}
 "
 		: "${CREATE_WALLET:=true}"
 		if [ ! -f "${WALLETFILE}" ] && [ "${CREATE_WALLET}" != "false" ]; then
-		  echo "The wallet does not exists, creating it at ${WALLETDIR}..."
-		  su-exec bitcoin bitcoin-wallet "-datadir=${WALLETDIR}" "-legacy" "-wallet=" create
+		  echo "The wallet does not exist!"
 		fi
 	fi
 
