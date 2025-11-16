@@ -91,6 +91,8 @@ VOLUME ["/home/bitcoin/.bitcoin"]
 ENV BITCOIN_NETWORK=mainnet
 EXPOSE 8332 8333
 
+USER bitcoin
+
 # Healthcheck: verify bitcoind is responding and syncing/synced with connections
 HEALTHCHECK --interval=30s --timeout=10s --start-period=300s --retries=3 \
     CMD ["/usr/local/bin/healthcheck.sh"]
